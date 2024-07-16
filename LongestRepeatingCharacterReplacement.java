@@ -36,6 +36,24 @@ public class LongestRepeatingCharacterReplacement {
         }
         return maxLength;
     }
+    static int LongestRepeatingCharacterReplacementMoreOptimal(String s,int k){
+        int n = s.length();
+        int l = 0,r = 0,maxLength = 0,maxFreq = 0;
+        HashMap<Character,Integer> map = new HashMap<>();
+        while (r < n){
+            map.put(s.charAt(r),map.getOrDefault(s.charAt(r),0) + 1);
+            maxFreq = Math.max(maxFreq,map.get(s.charAt(r)));
+            if (r - l + 1 - maxFreq > k){
+                map.put(s.charAt(l),map.get(s.charAt(l)) - 1);
+                l++;
+            }
+            else {
+                maxLength = Math.max(maxLength,r - l + 1);
+            }
+            r++;
+        }
+        return maxLength;
+    }
     public static void main(String[] args) {
         String s = "AABAABBAA";
         System.out.println(LongestRepeatingCharacterReplacementBrute(s,2));

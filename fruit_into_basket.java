@@ -22,15 +22,30 @@ public class fruit_into_basket {
         int n = array.length;
         while (r < n){
           map.put(array[r],map.getOrDefault(array[r],0) + 1);
-            if (map.size() > 2){
-                while (map.size() != 2){
+                while (map.size() > 2){
                     map.put(array[l],map.get(array[l])-1);
                     if (map.get(array[l]) == 0)map.remove(array[l]);
                     l++;
                 }
-            }
             max = Math.max(max,r - l + 1);
             r++;
+        }
+        return max;
+    }
+    static int fruit_into_basket_OptimalOfOptimal(int[] array){
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int l = 0,max = 0;
+        int n = array.length;
+        for (int r = 0; r < n; r++) {
+            map.put(array[r],map.getOrDefault(array[r],0) + 1);
+            if (map.size() > 2){
+                map.put(array[l],map.get(array[l])-1);
+                if (map.get(array[l]) == 0)map.remove(array[l]);
+                l++;
+            }
+            else {
+                max = Math.max(max,r - l + 1);
+            }
         }
         return max;
     }
