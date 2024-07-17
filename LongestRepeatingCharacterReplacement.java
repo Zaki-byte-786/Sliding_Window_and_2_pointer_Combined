@@ -11,6 +11,7 @@ public class LongestRepeatingCharacterReplacement {
                 maxCount = Math.max(maxCount,count[s.charAt(j) - 'A']);
                 length = j - i + 1;
                 if (length - maxCount <= k)maxLength = Math.max(length,maxLength);
+                else break;
             }
         }
         return maxLength;
@@ -57,6 +58,7 @@ public class LongestRepeatingCharacterReplacement {
     public static void main(String[] args) {
         String s = "AABAABBAA";
         System.out.println(LongestRepeatingCharacterReplacementBrute(s,2));
+        System.out.println(LongestRepeatingCharacterReplacementOptimal1(s,2));
     HashMap<Character,Integer> map = new HashMap<>();
         map.put('A', 1);
         map.put('B', 5);
