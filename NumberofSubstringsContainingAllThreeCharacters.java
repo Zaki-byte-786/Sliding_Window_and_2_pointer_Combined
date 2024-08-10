@@ -11,6 +11,7 @@ public class NumberofSubstringsContainingAllThreeCharacters {
                     break;
                 }
             }
+            if (array[0] + array[1] + array[2] == 0)return 0; // for a string like aaaaabbb,aaaaaa
         }
         return count;
     }
@@ -28,7 +29,7 @@ public class NumberofSubstringsContainingAllThreeCharacters {
         return count;
     }
     public static void main(String[] args) {
-        String s = "bbacba";
+        String s = "babcbac";
         System.out.println(NumberofSubstringsContainingAllThreeCharactersBruteMethod(s));
         System.out.println(NumberofSubstringsContainingAllThreeCharactersOptimal(s));
     }
