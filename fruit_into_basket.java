@@ -49,6 +49,22 @@ public class fruit_into_basket {
         }
         return max;
     }
+
+//    simpler code
+//    public int totalFruit(int[] arr) {
+//        HashMap<Integer,Integer> map = new HashMap<>();
+//        int j = 0,maxfruit = 0;
+//        for(int i = 0;i < arr.length;i++){
+//            map.put(arr[i],map.getOrDefault(arr[i],0) + 1);
+//            while(map.size() > 2){
+//                map.put(arr[j],map.get(arr[j]) - 1);
+//                if(map.get(arr[j]) == 0)map.remove(arr[j]);
+//                j++;
+//            }
+//            maxfruit = Math.max(maxfruit,i - j + 1);
+//        }
+//        return maxfruit;
+//    }
     public static void main(String[] args) {
         int[] fruits  = {3,3,3,1,2,1,1,2,3,3,4};
         System.out.println(fruit_into_basket_Brute(fruits));

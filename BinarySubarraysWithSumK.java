@@ -30,6 +30,24 @@ public class BinarySubarraysWithSumK {
     static int calculateNumberOfSubArray(int[] array,int k){
         return BinarySubarraysWithSumKMethod(array,k) - BinarySubarraysWithSumKMethod(array,k-1);
     }
+
+//    easy code for optimal case
+//    int function(int[] nums, int goal){
+//        if(goal < 0)return 0;
+//        int sum = 0,j = 0,count = 0;
+//        for(int i = 0;i < nums.length;i++){
+//            sum += nums[i];
+//            while(sum > goal){
+//                sum -= nums[j];
+//                j++;
+//            }
+//            count += i - j + 1;
+//        }
+//        return count;
+//    }
+//    public int numSubarraysWithSum(int[] nums, int goal) {
+//        return function(nums,goal)-function(nums,goal - 1);
+//    }
     public static void main(String[] args) {
         int[] array = {1,0,1,0,0,1};
         System.out.println(calculateNumberOfSubArray(array,0));
